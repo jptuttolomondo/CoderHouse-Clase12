@@ -1,9 +1,11 @@
-import { orderModel } from "../models/orders.model.js"
+import { businessModel } from "../models/business.model.js"
 
-export default class Order{
-    getOrders=async ()=>{
+
+export default class Business{
+    
+    getbusiness=async ()=>{
     try{ 
-    let result= await orderModel.find()
+    let result= await businessModel.find()
     return result
     }
     catch(error){
@@ -12,9 +14,9 @@ export default class Order{
     }
     }
     
-    getOrderById=async (oid)=>{
+    getBusinessById=async (bid)=>{
         try{
-        let result= await orderModel.findOne({_id:oid})
+        let result= await businessModel.findOne({_id:bid})
         return result
         }
         catch(error){
@@ -24,9 +26,9 @@ export default class Order{
         }
     
     
-        createOrder=async (order)=>{
+        createBusiness =async (business)=>{
             try{
-            let result= await orderModel.create(order)
+            let result= await businessModel.create(business)
             return result
             }
             catch(error){
@@ -35,9 +37,9 @@ export default class Order{
             }
             }
     
-        resolveOrder=async (oid,order)=>{
+        updateBusiness=async (bid,business)=>{
                 try{
-                let result= await orderModel.updateOne({_id:oid}, {$set:order})
+                let result= await businessModel.updateOne({_id:bid}, {$set:business})
                 return result
                 }
                 catch(error){

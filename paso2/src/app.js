@@ -4,16 +4,15 @@ import ordersRouter from "./routes/orders.router.js";
 import usersRouter from "./routes/users.router.js";
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import cors from 'cors'
 
+//npm i mon
 const app = express();
 dotenv.config()
 const PORT = 8080 || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({origin :'http://127.0.0.1:5500',methods:['POST','PUT','GET']}))
-//deshabilitar el cache del navegador!!!
+
 app.use("/api/users", usersRouter);
 app.use("/api/business", businessRouter);
 app.use("/api/orders", ordersRouter);
