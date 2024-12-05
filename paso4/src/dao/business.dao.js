@@ -16,7 +16,9 @@ export default class Business{
     
     getBusinessById=async (bid)=>{
         try{
+            console.log(bid)
         let result= await businessModel.findOne({_id:bid})
+        console.log(result)
         return result
         }
         catch(error){
@@ -28,6 +30,7 @@ export default class Business{
     
         createBusiness =async (business)=>{
             try{
+                console.log(business)
             let result= await businessModel.create(business)
             return result
             }

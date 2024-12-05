@@ -12,7 +12,7 @@ const PORT = 8080 || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({origin :'http://127.0.0.1:5500',methods:['POST','PUT','GET']}))
+app.use(cors())
 //deshabilitar el cache del navegador!!!
 app.use("/api/users", usersRouter);
 app.use("/api/business", businessRouter);

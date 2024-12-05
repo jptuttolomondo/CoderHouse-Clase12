@@ -9,7 +9,7 @@ import {
 const router = Router();
 
 router.get("/", getBusiness);
-router.get("/:uid", getBusinessById);
+router.get("/:bid", getBusinessById);
 router.post("/", saveBusiness);
 router.post("/:bid/product", addProduct);
 export default router;

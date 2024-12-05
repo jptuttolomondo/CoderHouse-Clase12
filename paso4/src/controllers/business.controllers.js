@@ -17,8 +17,8 @@ export const getBusinessById = async (req, res) => {
 //     return null;
 // }
   let result= await businessService.getBusinessById(bid)
-  if(!result) res.status(500).send ({status:'error',error :'error! reading database'})
-  res.send({ status: "success", payload: "getBusinessById" });
+  if(!result) res.status(500).send ({status:'error',error :'error! reading database getbyId'})
+  res.send({ status: "success", payload: result });
 };
 
 export const saveBusiness = async (req, res) => {
@@ -33,10 +33,12 @@ export const addProduct = async (req, res) => {
   let product=req.body
   let bid=req.params.bid
   //validar product
-
+console.log(bid)
   let business=await businessService.getBusinessById(bid)
+
   business.products.push(product)
 let result= await businessService.updateBusiness(bid,business)
+
 if(!result) res.status(500).send ({status:'error',error :'error! reading database'})
   res.send({ status: "success", payload: result });
   };
